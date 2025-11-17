@@ -68,6 +68,11 @@ void RobotHWShm::initializeJoints(std::vector<joint_info> &joints)
     impl->com_vel.resize(dof);
     impl->com_eff.resize(dof);
 
+    bool r0 = impl->shm->readPositionCurrent(impl->cur_pos);
+    for (size_t i=0; i< impl->cur_pos.size();i++){
+        impl->com_pos[i] = impl->cur_pos[i];
+    }
+
     for(auto j = joints.begin(); j != joints.end(); j++) {
         int idx = j->index;
         jointStateInterface.registerHandle(
