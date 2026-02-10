@@ -6,7 +6,7 @@ namespace hardware_interface {
 
 void RobotDxHWShm::read(const ros::Time& time, const ros::Duration& period)
 {
-    dx_shm_ptr->writeDx();
+    //dx_shm_ptr->writeDx();
     RobotHWShm::read(time, period);
 }
 
